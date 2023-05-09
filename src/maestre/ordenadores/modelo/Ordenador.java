@@ -72,7 +72,7 @@ public class Ordenador {
             this.setMemoriaRam(memoriaRam) ;
             this.procesador = procesador;
             this.setNucleos(nucleos) ;
-            this.tipoDiscoDuro = tipoDiscoDuro;
+            this.setTipoDiscoDuro(tipoDiscoDuro) ;
             this.arrancado = arrancado;
         }
         
@@ -164,7 +164,58 @@ public class Ordenador {
             }
 
             public void setTipoDiscoDuro(String tipoDiscoDuro) {
-                this.tipoDiscoDuro = tipoDiscoDuro;
+                
+                int opcion ;
+                boolean validador = false ;
+                
+                // Primero voy a confiar en el/la usuario/a y voy a comparar el valor. Si es válido adelante.
+                
+                if (tipoDiscoDuro.equals("HDD")) 
+                {
+                    opcion = 1 ;
+                }
+                else if (tipoDiscoDuro.equals("SSD"))
+                {
+                    opcion = 2 ;
+                }
+                else
+                {
+                    opcion = 0 ;
+                }
+                
+                // Si no ha resultado le conduciré a un menú para que elija entre una de los dos constantes.
+                
+                
+                if (( opcion != 1 ) || ( opcion != 2 )) 
+                {
+                    do 
+                    {
+                        System.out.println("\n¿Qué tipo de disco duro tiene: ");
+                        System.out.println("\n1. HDD");
+                        System.out.println("2. SSD\n");
+
+                        switch (opcion)
+                        {
+                            case 1:
+                                TipoDiscoDuro tipoDisco = TipoDiscoDuro.HDD ;
+                                this.tipoDiscoDuro = tipoDisco.getTipo() ;
+                                validador = true ;
+                                break ;
+
+                            case 2:
+                                tipoDisco = TipoDiscoDuro.SSD ;
+                                this.tipoDiscoDuro = tipoDisco.getTipo() ;
+                                validador = true ;
+                                break ;
+
+                            default:
+                                System.out.println("\nElige la opción 1 ó 2.") ;
+
+                        }
+                        
+                    } while (!validador) ;
+                }
+                
             }
             
             
