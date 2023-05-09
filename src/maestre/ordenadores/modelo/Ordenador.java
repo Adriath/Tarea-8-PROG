@@ -66,12 +66,12 @@ public class Ordenador {
         public Ordenador(String num_serie, String marca, String modelo, byte memoriaRam, String procesador, byte nucleos, String tipoDiscoDuro, boolean arrancado) {
             // CONSTRUCTOR CON PARÁMETROS
             
-            this.num_serie = num_serie;
+            this.setNum_serie(num_serie) ;
             this.marca = marca;
             this.modelo = modelo;
-            this.memoriaRam = memoriaRam;
+            this.setMemoriaRam(memoriaRam) ;
             this.procesador = procesador;
-            this.nucleos = nucleos;
+            this.setNucleos(nucleos) ;
             this.tipoDiscoDuro = tipoDiscoDuro;
             this.arrancado = arrancado;
         }
@@ -88,7 +88,23 @@ public class Ordenador {
             }
 
             public void setMemoriaRam(byte memoriaRam) {
-                this.memoriaRam = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce la cantidad de GB: ", 3);
+                
+                boolean validador = false ;
+                
+                do 
+                {
+                    this.memoriaRam = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce la cantidad de GB: ", 3);
+                    
+                    if (this.memoriaRam <= 64) 
+                    {
+                        validador = true ;
+                    }
+                    else
+                    {
+                        System.out.println("\nLos ordenadores actuales no sobrepasan los 64 GB de RAM.") ;
+                    }
+                    
+                } while (!validador);
             }
         
         
@@ -100,7 +116,7 @@ public class Ordenador {
             }
 
             public void setNucleos(byte nucleos) {
-                this.nucleos = nucleos;
+                this.nucleos = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce el número de núcleos del procesador:", 2) ;
             }
 
             
@@ -112,7 +128,7 @@ public class Ordenador {
             }
 
             public void setNum_serie(String num_serie) {
-                this.num_serie = num_serie;
+                this.num_serie = Utilidades.leerStringConLimiteCaracteres("\nIntroduce el número de serie:", 20) ;
             }
             
             
