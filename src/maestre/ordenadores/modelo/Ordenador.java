@@ -13,16 +13,18 @@ public class Ordenador {
     
     // ------------ DECLARACIÓN DE VARIABLES ----------------
     
-    byte memoriaRam ; // Máximo 3 dígitos (GB).
-    byte nucleos ; // Máximo 2 dígitos.
-    int num_serie ; // Máximo 20 caracteres.
+    private byte memoriaRam ; // Máximo 3 dígitos (GB).
+    private byte nucleos ; // Máximo 2 dígitos.
+    private int num_serie ; // Máximo 20 caracteres.
     
-    String marca ;
-    String modelo ;
-    String tipoDiscoDuro ; // HDD / SSD
-    String procesador ;    
+    private String marca ;
+    private String modelo ;
+    private String tipoDiscoDuro ; // HDD / SSD
+    private String procesador ;    
     
-    boolean arrancado ;
+    private boolean arrancado ;
+
+ 
     
     
     public enum TipoDiscoDuro{
@@ -71,6 +73,104 @@ public class Ordenador {
             this.tipoDiscoDuro = tipoDiscoDuro;
             this.arrancado = arrancado;
         }
-    
         
+        
+        // ------ GETTERS & SETTERS ------
+        
+        
+            // MEMORIA RAM 
+        
+        
+            public byte getMemoriaRam() {
+                return memoriaRam;
+            }
+
+            public void setMemoriaRam(byte memoriaRam) {
+                this.memoriaRam = memoriaRam;
+            }
+        
+        
+            // NÚMERO DE NÚCLEOS
+            
+            
+            public byte getNucleos() {
+                return nucleos;
+            }
+
+            public void setNucleos(byte nucleos) {
+                this.nucleos = nucleos;
+            }
+
+            
+            // NÚMERO DE SERIE
+            
+            
+            public int getNum_serie() {
+                return num_serie;
+            }
+
+            public void setNum_serie(int num_serie) {
+                this.num_serie = num_serie;
+            }
+            
+            
+            // MARCA
+
+            
+            public String getMarca() {
+                return marca;
+            }
+
+            public void setMarca(String marca) {
+                this.marca = marca;
+            }
+            
+            
+            // MODELO
+            
+
+            public String getModelo() {
+                return modelo;
+            }
+
+            public void setModelo(String modelo) {
+                this.modelo = modelo;
+            }
+
+            
+            // DISCO DURO
+            
+            
+            public String getTipoDiscoDuro() {
+                return tipoDiscoDuro;
+            }
+
+            public void setTipoDiscoDuro(String tipoDiscoDuro) {
+                this.tipoDiscoDuro = tipoDiscoDuro;
+            }
+            
+            
+            // PROCESADOR
+            
+
+            public String getProcesador() {
+                return procesador;
+            }
+
+            public void setProcesador(String procesador) {
+                this.procesador = procesador;
+            }
+            
+            
+            // ARRANCADO
+            
+
+            public boolean isArrancado() {
+                return arrancado;
+            }
+
+            public void setArrancado(boolean arrancado) {
+                this.arrancado = arrancado;
+            }
+
 }
