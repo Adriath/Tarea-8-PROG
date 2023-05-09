@@ -42,6 +42,56 @@ public class Utilidades {
         return mensaje ;
     }
     
+     /**
+      * Método que pide al usuario una cadena de caracteres pudiendo personalizar 
+      * el mensaje de petición y que limita el número de caracteres.
+      * 
+      * @param msg Mensaje con el que se pide la cadena al usuario.
+      * @param limite Límite de caracteres.
+      * @return Devuelve la cadena con longitud igual o inferior a la permitida.
+      */
+    public static String leerStringConLimiteCaracteres(String msg, int limite){
+    
+        String mensaje ;
+        boolean validador = false ;
+        
+        Scanner entrada = new Scanner(System.in) ;
+        
+        do 
+        {
+            System.out.println(msg);
+            mensaje = entrada.nextLine() ;
+            
+            if (( mensaje.length() <= limite ) && ( mensaje.length() > 0 )) 
+                // Si la longitud de la cadena es mayor que 0 y menor que el límite estipulado...
+            {
+                validador = true ; // ...saldremos del bucle.
+            }
+            else if (mensaje.length() == 0)
+                // Si la longitud es 0, es decir, si la cadena está vacía.
+            {
+                System.out.println("\nNo puede estar en blanco, se requiere algún valor.");
+            }
+            else
+                // Si se excede el límite de caracteres.
+            {
+                if (limite == 1) 
+                    // Mensaje para el caso en que sea singular.
+                {
+                    System.out.println("\nNo se permite más de " + limite + " caracter.");
+                }
+                else
+                    // Mensaje para el caso en que sea en plural.
+                {
+                    System.out.println("\nNo se permiten más de " + limite + " caracteres.");
+                }
+            }
+            
+        } while (!validador);
+        
+        return mensaje ;
+    }
+    
        
      /**
      * Método que pide al usuario un número entero pudiendo personalizar el 

@@ -1,8 +1,10 @@
 
 package maestre.ordenadores.modelo;
 
+import utilidades.Utilidades;
+
 /**
- *
+ * 
  * @author Adrián Arjona
  */
 public class Ordenador {
@@ -15,8 +17,8 @@ public class Ordenador {
     
     private byte memoriaRam ; // Máximo 3 dígitos (GB).
     private byte nucleos ; // Máximo 2 dígitos.
-    private int num_serie ; // Máximo 20 caracteres.
     
+    private String num_serie ; // Máximo 20 caracteres.
     private String marca ;
     private String modelo ;
     private String tipoDiscoDuro ; // HDD / SSD
@@ -51,7 +53,7 @@ public class Ordenador {
         public Ordenador() {
             // CONSTRUCTOR POR DEFECTO
             
-            this.num_serie = 0 ;
+            this.num_serie = "" ;
             this.marca = "" ;
             this.modelo = "" ;
             this.memoriaRam = 0 ;
@@ -61,7 +63,7 @@ public class Ordenador {
             this.arrancado = false ;
         }
 
-        public Ordenador(int num_serie, String marca, String modelo, byte memoriaRam, String procesador, byte nucleos, String tipoDiscoDuro, boolean arrancado) {
+        public Ordenador(String num_serie, String marca, String modelo, byte memoriaRam, String procesador, byte nucleos, String tipoDiscoDuro, boolean arrancado) {
             // CONSTRUCTOR CON PARÁMETROS
             
             this.num_serie = num_serie;
@@ -86,7 +88,7 @@ public class Ordenador {
             }
 
             public void setMemoriaRam(byte memoriaRam) {
-                this.memoriaRam = memoriaRam;
+                this.memoriaRam = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce la cantidad de GB: ", 3);
             }
         
         
@@ -105,11 +107,11 @@ public class Ordenador {
             // NÚMERO DE SERIE
             
             
-            public int getNum_serie() {
+            public String getNum_serie() {
                 return num_serie;
             }
 
-            public void setNum_serie(int num_serie) {
+            public void setNum_serie(String num_serie) {
                 this.num_serie = num_serie;
             }
             
