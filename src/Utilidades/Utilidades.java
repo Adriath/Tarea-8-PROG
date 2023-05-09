@@ -13,6 +13,7 @@ import java.util.Scanner;
  * Ejemplo: un método para leer por pantalla una cadena de caracteres.
  * 
  * @author Adrián Arjona
+ * @version tarea 8
  */
 public class Utilidades {
     
@@ -248,6 +249,55 @@ public class Utilidades {
                 
                 System.out.println("\nOcurrió algún error.");
             }
+        } while (!validador);
+
+     
+        return numero ;
+    }
+    
+    /**
+     * Método que pide al usuario un número entero corto pudiendo personalizar el 
+     * mensaje de petición y limitando el número de dígitos.
+     * 
+     * @param msg String. Mensaje con el que se pide el número al usuario.
+     * @param limite int. Indica el número de dígitos permitidos.
+     * @return byte numero. Devuelve el número introducido por el usuario.
+     */
+    public static byte leerByteConLimiteDeDigitos(String msg, int limite){
+        
+        byte numero = 0;
+        boolean validador = false ;
+        Scanner entrada = new Scanner(System.in) ;
+        
+        do {
+            System.out.println(msg);
+            String mensaje = entrada.nextLine() ;
+           
+            if (mensaje.length() <= limite) // Si la longitud de la cadena es menor o igual que el límite...
+            {
+                try // ...ejecuta el código.
+                {
+                    numero = Byte.parseByte(mensaje) ;
+                    validador = true ;
+                }
+                catch (InputMismatchException e) {
+
+                    System.out.println("\nNo has introducido un número entero corto.");
+                }
+                catch (NumberFormatException e) {
+
+                    System.out.println("\nNo has introducido un número entero corto.");
+                }
+                catch (Exception e) {
+
+                    System.out.println("\nOcurrió algún error.");
+                }
+            }
+            else // Si es mayor al límite muestra un mensaje por pantalla.
+            {
+                System.out.println("\nEl número debe tener " + limite + " dígito/s como máximo.");
+            }
+            
         } while (!validador);
 
      
