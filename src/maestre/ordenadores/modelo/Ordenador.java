@@ -4,8 +4,10 @@ package maestre.ordenadores.modelo;
 import utilidades.Utilidades;
 
 /**
+ * Clase abstracta que sirve de plantilla para crear objetos de tipo Ordenador.
  * 
  * @author Adrián Arjona
+ * @version Mayo 2023
  */
 abstract public class Ordenador {
     
@@ -50,9 +52,11 @@ abstract public class Ordenador {
     
         // ------- CONSTRUCTOR ----------
 
+        /**
+         * Constructor por defecto de la clase Ordenador
+         */
         public Ordenador() {
-            // CONSTRUCTOR POR DEFECTO
-            
+                        
             this.num_serie = "" ;
             this.marca = "" ;
             this.modelo = "" ;
@@ -63,9 +67,21 @@ abstract public class Ordenador {
             this.arrancado = false ;
         }
 
+        
+        /**
+         * Constructor con parámetros de la clase Ordenador
+         * 
+         * @param num_serie Número de serie.
+         * @param marca Marca.
+         * @param modelo Modelo.
+         * @param memoriaRam Memoria RAM.
+         * @param procesador Procesador.
+         * @param nucleos Número de núcleos.
+         * @param tipoDiscoDuro Tipo de disco duro.
+         * @param arrancado Si está arrancado o no.
+         */
         public Ordenador(String num_serie, String marca, String modelo, byte memoriaRam, String procesador, byte nucleos, String tipoDiscoDuro, boolean arrancado) {
-            // CONSTRUCTOR CON PARÁMETROS
-            
+                        
             this.setNum_serie(num_serie) ;
             this.marca = marca;
             this.modelo = modelo;
@@ -83,10 +99,21 @@ abstract public class Ordenador {
             // MEMORIA RAM 
         
         
+            /**
+             * Método que devuelve la memoria RAM.
+             * 
+             * @return Devuelve la memoria RAM.
+             */
             public byte getMemoriaRam() {
                 return memoriaRam;
             }
 
+            
+            /**
+             * Método que modifica la memoria RAM. Sólo se permiten 3 dígitos.
+             * 
+             * @param memoriaRam Memoria RAM.
+             */
             public void setMemoriaRam(byte memoriaRam) {
                 
                 boolean validador = false ;
@@ -111,10 +138,21 @@ abstract public class Ordenador {
             // NÚMERO DE NÚCLEOS
             
             
+            /**
+             * Método que devuelve el número de núcleos.
+             * 
+             * @return Devuelve el número de núcleos.
+             */
             public byte getNucleos() {
                 return nucleos;
             }
 
+            
+            /**
+             * Método que modifica el número de núcleos. Sólo permite dos dítigos.
+             * 
+             * @param nucleos Número de núcleos.
+             */
             public void setNucleos(byte nucleos) {
                 this.nucleos = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce el número de núcleos del procesador:", 2) ;
             }
@@ -123,10 +161,20 @@ abstract public class Ordenador {
             // NÚMERO DE SERIE
             
             
+            /**
+             * Método que devuelve el número de serie.
+             * @return Devuelve el número de serie.
+             */
             public String getNum_serie() {
                 return num_serie;
             }
 
+            
+            /**
+             * Método que modifica el número de serie. Permite 20 caracteres como máximo.
+             * 
+             * @param num_serie Número de serie (tipo cadena).
+             */
             public void setNum_serie(String num_serie) {
                 this.num_serie = Utilidades.leerStringConLimiteCaracteres("\nIntroduce el número de serie:", 20) ;
             }
@@ -135,10 +183,21 @@ abstract public class Ordenador {
             // MARCA
 
             
+            /**
+             * Método que devuelve la marca.
+             * 
+             * @return Devuelve la marca.
+             */
             public String getMarca() {
                 return marca;
             }
 
+            
+            /**
+             * Método que modifica la marca.
+             * 
+             * @param marca Marca.
+             */
             public void setMarca(String marca) {
                 this.marca = marca;
             }
@@ -147,10 +206,21 @@ abstract public class Ordenador {
             // MODELO
             
 
+            /**
+             * Método que devuelve el modelo.
+             * 
+             * @return Devuelve el modelo.
+             */
             public String getModelo() {
                 return modelo;
             }
 
+            
+            /**
+             * Método que modifica el modelo.
+             * 
+             * @param modelo Modelo.
+             */
             public void setModelo(String modelo) {
                 this.modelo = modelo;
             }
@@ -159,10 +229,22 @@ abstract public class Ordenador {
             // DISCO DURO
             
             
+            /**
+             * Método que devuelve el tipo de disco duro.
+             * 
+             * @return Devuelve el tipo de disco duro.
+             */
             public String getTipoDiscoDuro() {
                 return tipoDiscoDuro;
             }
 
+            
+            /**
+             * Método que modifica el tipo de disco duro. Permite elegir entre dos constantes: HDD y SSD.
+             * Si no se acierta a la priemra sugerirá un menú que limita las opciones.
+             * 
+             * @param tipoDiscoDuro Tipo de disco duro.
+             */
             public void setTipoDiscoDuro(String tipoDiscoDuro) {
                 
                 int opcion ;
@@ -222,10 +304,21 @@ abstract public class Ordenador {
             // PROCESADOR
             
 
+            /**
+             * Método que devuelve el tipo de procesador.
+             * 
+             * @return Devuelve el tipo de procesador.
+             */
             public String getProcesador() {
                 return procesador;
             }
 
+            
+            /**
+             * Método que modifica el procesador.
+             * 
+             * @param procesador Procesador.
+             */
             public void setProcesador(String procesador) {
                 this.procesador = procesador;
             }
@@ -234,20 +327,74 @@ abstract public class Ordenador {
             // ARRANCADO
             
 
+            /**
+             * Método que devuelve si el ordenador está arrancado.
+             * 
+             * @return Devuelve true si está arrancado, false si no.
+             */
             public boolean isArrancado() {
                 return arrancado;
             }
 
+            
+            /**
+             * Método que modifica el estado del ordenador, si está arrancado o no.
+             * 
+             * @param arrancado Si está arrancado. True sí, false no.
+             */
             public void setArrancado(boolean arrancado) {
                 this.arrancado = arrancado;
             }
             
             
+        // --- TO STRING ---
+
+        /**
+         * Método toString() de la clase Ordenador.
+         * 
+         * @return Los atributos del ordenador.
+         */
+            @Override
+        public String toString() {
+            return "Ordenador{" + "memoriaRam=" + memoriaRam + ", nucleos=" + nucleos + ", num_serie=" + num_serie + ", marca=" + marca + 
+                    ", modelo=" + modelo + ", tipoDiscoDuro=" + tipoDiscoDuro + ", procesador=" + procesador + ", arrancado=" + arrancado + '}';
+        }
+        
+        
+        // ----- MÉTODO EQUALS -------
+        
+        /**
+         * Método comparador. Si el objeto pasado es de tipo ordenador lo compara para verificar si los númeors de serie son iguales.
+         * 
+         * @param obj Objeto que se quiere comparar.
+         * @return Devuelve true si son iguales, false si no lo son.
+         */
+        @Override
+        public boolean equals(Object obj){
+            
+            if (obj != null && !(obj instanceof Ordenador)) 
+            {
+                return false ;
+            }
+            
+            boolean iguales = false ;
+            Ordenador otro = (Ordenador)obj ; // Casting
+            
+            if (this.num_serie.equals(otro.num_serie)) 
+            {
+                iguales = true ;
+            }
+            return iguales ;
+        }
+       
+            
         // --------- MÉTODOS PERSONALIZADOS --------
             
             
+        /**
+         * Métdo que muestra por pantalla un mensaje y pone arrancado en true
+         */
         public void arrancar(){
-            //MÉTODO QUE MUESTRA POR PANTALLA UN MENSAJE Y PONE ARRANCADO EN TRUE
             
             System.out.println("\nEl ordenador se está arrancando.");
             System.out.println("-");
@@ -297,8 +444,12 @@ abstract public class Ordenador {
             this.arrancado = true ;
         }
         
+        
+        
+        /**
+         * Método que muestra por pantalla un mensaje y pone arrancado en false.
+         */
         public void apagar(){
-            //MÉTODO QUE MUESTRA POR PANTALLA UN MENSAJE Y PONE ARRANCADO EN FALSE
             
             if (!Utilidades.secuenciaSalida("\n¿De verdad quieres apagar el sistema?")) 
             {
@@ -328,7 +479,12 @@ abstract public class Ordenador {
             }
         }
         
+        
+        // ---------- MÉTODOS ABSTRACTOS ------------
+        
+        /**
+         * Método abstracto. Se utiliza para dibujar.
+         */
         abstract public void dibujar() ;
-        // MÉTODO ABSTRACTO 
 
 }
