@@ -7,7 +7,7 @@ import utilidades.Utilidades;
  * 
  * @author Adrián Arjona
  */
-public class Ordenador {
+abstract public class Ordenador {
     
     /* Francisco Adrián Arjona Bravo
         UNIDAD 8: utilización avanzada de clases.
@@ -328,9 +328,7 @@ public class Ordenador {
             }
         }
         
-    public static void main(String[] args) { // MAIN DE PRUEBAS ---------------------------------------------------------------------------------------
-        Ordenador ordenador1 = new Ordenador() ;
-        ordenador1.arrancar();
-        ordenador1.apagar();
-    }
+        abstract public void dibujar() ;
+        // MÉTODO ABSTRACTO 
+
 }
