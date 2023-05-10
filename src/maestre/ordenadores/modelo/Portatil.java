@@ -16,7 +16,7 @@ public class Portatil extends Ordenador{
     
     // ---------- DECLARACIÓN DE ATRIBUTOS ----------------
     
-    byte pulgadas ; //Núemro entero de 2 dígitos.
+    private byte pulgadas ; //Núemro entero de 2 dígitos.
     final short DURACION_BATERIA= 300 ;
     
     
@@ -53,6 +53,19 @@ public class Portatil extends Ordenador{
         super(num_serie, marca, modelo, memoriaRam, procesador, nucleos, tipoDiscoDuro, arrancado);
         this.pulgadas = pulgadas;
     }
+        
+        
+        // ---- GETTERS & SETTERS -------
+
+        
+        public byte getPulgadas() {
+            return pulgadas;
+        }
+
+        
+        public void setPulgadas(byte pulgadas) {
+            this.pulgadas = pulgadas;
+        }
         
         
         

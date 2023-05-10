@@ -120,15 +120,15 @@ abstract public class Ordenador {
                 
                 do 
                 {
-                    this.memoriaRam = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce la cantidad de GB: ", 3);
-                    
-                    if (this.memoriaRam <= 64) 
+                    if (( memoriaRam > 0 ) && ( memoriaRam <= 64)) 
                     {
+                        this.memoriaRam = memoriaRam ;
                         validador = true ;
                     }
                     else
                     {
-                        System.out.println("\nLos ordenadores actuales no sobrepasan los 64 GB de RAM.") ;
+                        System.out.println(Utilidades.coloreaCadena("\nLos ordenadores actuales no sobrepasan los 64 GB de RAM.", Utilidades.rojo)) ;
+                        memoriaRam = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce la memoria RAM: ", 3) ;
                     }
                     
                 } while (!validador);
@@ -154,7 +154,23 @@ abstract public class Ordenador {
              * @param nucleos Número de núcleos.
              */
             public void setNucleos(byte nucleos) {
-                this.nucleos = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce el número de núcleos del procesador:", 2) ;
+                
+                boolean validador = false ;
+                
+                do
+                {
+                    if (( nucleos > 0 ) && ( nucleos <= 99)) 
+                    {
+                        this.nucleos = nucleos ;
+                        validador = true ;
+                    }
+                    else
+                    {
+                        System.out.println(Utilidades.coloreaCadena("\nEl valor sólo puede tener 2 dígitos como máximo.", Utilidades.rojo));
+                        nucleos = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce el númeor de núcleos:", 2) ;
+                    }
+                    
+                } while (!validador);
             }
 
             
@@ -176,7 +192,24 @@ abstract public class Ordenador {
              * @param num_serie Número de serie (tipo cadena).
              */
             public void setNum_serie(String num_serie) {
-                this.num_serie = Utilidades.leerStringConLimiteCaracteres("\nIntroduce el número de serie:", 20) ;
+                
+                boolean validador = false ;
+                
+                do 
+                {
+                    if (( num_serie.length() > 0 ) && ( num_serie.length() <= 20))
+                    {
+                        this.num_serie = num_serie ;
+                        validador = true ;
+                    }
+                    else
+                    {
+                        System.out.println(Utilidades.coloreaCadena("\nEl número de serie no puede tener más de 20 caracteres.", Utilidades.rojo));
+                        num_serie = Utilidades.leerStringConLimiteCaracteres("\nIntroduce el número de serie:", 20) ;
+                    }
+                    
+                } while (!validador);
+                
             }
             
             
