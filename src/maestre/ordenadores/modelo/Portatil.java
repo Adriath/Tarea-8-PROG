@@ -1,6 +1,8 @@
 
 package maestre.ordenadores.modelo;
 
+import utilidades.Utilidades;
+
 /**
  * Clase que crea objetos de tipo portátil. Hereda de Ordenador.
  * 
@@ -16,7 +18,8 @@ public class Portatil extends Ordenador{
     
     // ---------- DECLARACIÓN DE ATRIBUTOS ----------------
     
-    private byte pulgadas ; //Núemro entero de 2 dígitos.
+    private byte pulgadas ; //Número entero de 2 dígitos.
+    
     final short DURACION_BATERIA= 300 ;
     
     
@@ -38,7 +41,7 @@ public class Portatil extends Ordenador{
         /**
          * Constructor con parámetros de la clase Portatil
          * 
-         * @param pulgadas Pulgadas de la pantalla. Permite 2 dígitos.
+         * @param pulgadas Pulgadas de la pantalla.
          * @param num_serie Número de serie.
          * @param marca Marca.
          * @param modelo Modelo.
@@ -51,19 +54,47 @@ public class Portatil extends Ordenador{
         public Portatil(byte pulgadas, String num_serie, String marca, String modelo, byte memoriaRam, String procesador, byte nucleos, String tipoDiscoDuro, boolean arrancado){
         
         super(num_serie, marca, modelo, memoriaRam, procesador, nucleos, tipoDiscoDuro, arrancado);
-        this.pulgadas = pulgadas;
+        this.setPulgadas(pulgadas) ;
     }
         
         
         // ---- GETTERS & SETTERS -------
 
         
+        /**
+         * Método que devuelve las pulgadas del portátil.
+         * 
+         * @return Devuelve las pulgadas.
+         */
         public byte getPulgadas() {
             return pulgadas;
         }
 
         
+        /**
+         * Método que modifica las pulgadas del portátil. Controla que tenga un 
+         * máximo de 17 pulgadas.
+         * 
+         * @param pulgadas Pulgadas.
+         */
         public void setPulgadas(byte pulgadas) {
+            
+            boolean validador = false ;
+            
+            do 
+            {
+                if (( pulgadas > 0 ) && ( pulgadas <= 17)) 
+                {
+                    this.pulgadas = pulgadas ;
+                    validador = true ;
+                }
+                else
+                {
+                    System.out.println(Utilidades.coloreaCadena("\nLos portátiles actuales no suelen tener más de 17 pulgadas.", Utilidades.rojo));
+                    pulgadas = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce el número de pulgadas:", 2) ;
+                }
+                
+            } while (!validador);
             this.pulgadas = pulgadas;
         }
         
