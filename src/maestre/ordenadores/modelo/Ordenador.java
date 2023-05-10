@@ -241,5 +241,96 @@ public class Ordenador {
             public void setArrancado(boolean arrancado) {
                 this.arrancado = arrancado;
             }
-
+            
+            
+        // --------- MÉTODOS PERSONALIZADOS --------
+            
+            
+        public void arrancar(){
+            //MÉTODO QUE MUESTRA POR PANTALLA UN MENSAJE Y PONE ARRANCADO EN TRUE
+            
+            System.out.println("\nEl ordenador se está arrancando.");
+            System.out.println("-");
+            System.out.println("-----");
+            System.out.println("----------");
+            System.out.println("----------------");
+            System.out.println("\nPresiona cualquier tecla para continuar..."); 
+            Utilidades.leerString("") ;
+            
+            System.out.println("              _______          _______ _________ _______          \n" +
+                            "             /  ___  \\        /  ___  \\\\___   ___\\\\  ___ \\         \n" +
+                            "            /  /   \\  \\      /  /   \\__/   \\  |   \\/|   \\/         \n" +
+                            "           /  /     \\  \\    /  /           |  |      |             \n" +
+                            "           |  |     |  |    |  |           |  |      |             \n" +
+                            "           |  |     |  |    |  |  ____     |  |      |             \n" +
+                            "           |  |     |  |    |  | |____|    |  |      |             \n" +
+                            "           |  |     |  |    |  |           |  |      |             \n" +
+                            "           |  |     |  |    |  |           |  |      |             \n" +
+                            "           |  |     |  |    |  |           |  |      |             \n" +
+                            "           \\  \\___/  /     \\  \\___/\\\\___/  |_/      |_/            \n" +
+                            "            \\_______/       \\_______\\___|___/                    \n" +
+                            "                             _     _ _______ _______ _______ _______ \n" +
+                            "                            | | _ | ||  ___  \\\\  ___\\\\  ___\\\\  ___  \\\n" +
+                            "                            | || || ||_/  / / \\ \\__| \\ \\__| \\ \\_/  /\n" +
+                            "                            | || || |    / /   \\ \\    \\ \\    \\   __/ \n" +
+                            "                            | || || |   / /     \\ \\___ \\ \\___ \\ |    \n" +
+                            "                            |_||_||_|  /_/       \\____\\\\____\\\\_|    \n" +
+            "");
+            
+            System.out.println("Loading Operating System...  \n" +
+"                      =====================================\n" +
+"                               ███ 50% ██████████    ");
+            
+             System.out.println("\n\n-");
+            System.out.println("-----");
+            System.out.println("----------");
+            System.out.println("----------------\n\n");
+            
+            System.out.println(" \nWelcome to Güindous!\n" +
+"                      =====================================\n" +
+"                               ███ 100% ██████████\n" +
+"                               \n" +
+"                       Please enter your username and password:");
+            Utilidades.leerString("\n\tNombre de usuario:") ;
+            Utilidades.leerString("\n\tContraseña") ;
+            
+            this.arrancado = true ;
+        }
+        
+        public void apagar(){
+            //MÉTODO QUE MUESTRA POR PANTALLA UN MENSAJE Y PONE ARRANCADO EN FALSE
+            
+            if (!Utilidades.secuenciaSalida("\n¿De verdad quieres apagar el sistema?")) 
+            {
+                System.out.println(" Shutting Down Güindous...\n" +
+"                      =====================================\n" +
+"                               ███ 50% ██████████\n" +
+"                               \n" +
+"                          Saving System Settings...\n" +
+"                      =====================================\n" +
+"                               ███ 75% ██████████\n" +
+"                               \n" +
+"                        Closing System Processes...\n" +
+"                      =====================================\n" +
+"                               ███ 90% ██████████\n" +
+"                               \n" +
+"                    Goodbye, Thanks for using Güindous Computer!\n" +
+"                      =====================================\n" +
+"                               ███ 100% ██████████\n");
+                System.out.println(" \n\n\t\t\t\t_     _ _______ _______ \n" +
+"                            | | _ | ||  ___  \\\\  ___\\\n" +
+"                            | || || ||_/  / / \\ \\__|\n" +
+"                            | || || |    / /   \\ \\   \n" +
+"                            | || || |   / /     \\ \\__\n" +
+"                            |_||_||_|  /_/       \\___|");
+            
+                this.arrancado = false ;
+            }
+        }
+        
+    public static void main(String[] args) { // MAIN DE PRUEBAS ---------------------------------------------------------------------------------------
+        Ordenador ordenador1 = new Ordenador() ;
+        ordenador1.arrancar();
+        ordenador1.apagar();
+    }
 }
