@@ -167,8 +167,39 @@ public class Portatil extends Ordenador{
         
         
         
-        public void dibujar(){ // ---------------- PUESTO PARA FUNCIONA LA EJECUCIÓN ---------
-            System.out.println("Dibujado");
+        @Override
+        public void dibujar(){
+            
+            final String ASTERISCO = "*" ;
+            String[][] asteriscos = new String[this.getMemoriaRam()][this.getNucleos()] ;
+            
+            System.out.println(this.toString());
+            
+            for (int i = 0; i < asteriscos.length; i++) 
+            {
+                for (int j = 0; j < asteriscos[0].length; j++) 
+                {
+                    asteriscos[i][j] = ASTERISCO ;
+                }
+                
+            }
+            
+            if (this.isArrancado())  // ESTOY CON ESTA PARTE
+            {
+                for (int i = 0; i < asteriscos.length; i++) 
+                {
+                    System.out.print(asteriscos[i][0]);
+                    
+                    for (int j = 0; j < asteriscos[0].length; j++) 
+                    {
+                        
+                    }
+                }
+            }
+            else
+            {
+                System.out.println(Utilidades.coloreaCadena("\nEl ordenador no está arrancado.", Utilidades.rojo)) ;
+            }
         }
         
         
@@ -177,11 +208,9 @@ public class Portatil extends Ordenador{
         public static void main(String[] args) { // --------------------- MAIN DE PRUEBAS ----------------------------------------------------
         
             Portatil portatil1 = new Portatil() ;
-            Portatil portatil2 = new Portatil(( byte)63, "aosñedjfa", "Acer", "Legion", (byte)323, "Intel", (byte)3, "SSD", true) ;
+            Portatil portatil2 = new Portatil(( byte)17, "aosñedjfa", "Acer", "Legion", (byte)8, "Intel", (byte)4, "SSD", true) ;
             
-            System.out.println(portatil1.toString());
-            System.out.println(portatil2.toString());
-            
+            portatil2.dibujar();
            
     }
 }

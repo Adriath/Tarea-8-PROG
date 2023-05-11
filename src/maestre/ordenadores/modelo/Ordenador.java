@@ -395,7 +395,7 @@ abstract public class Ordenador {
         sb.append("\nNúmero de serie = ").append(num_serie);
         sb.append("\nMarca = ").append(marca);
         sb.append("\nModelo = ").append(modelo);
-        sb.append("\nMemoria RAM = ").append(memoriaRam);
+        sb.append("\nMemoria RAM = ").append(memoriaRam).append(" GB");
         sb.append("\nProcesador = ").append(procesador);
         sb.append("\nNúmero de nucleos = ").append(nucleos);        
         sb.append("\nTipo de disco duro = ").append(tipoDiscoDuro);
