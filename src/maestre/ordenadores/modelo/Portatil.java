@@ -20,7 +20,9 @@ public class Portatil extends Ordenador{
     
     private byte pulgadas ; //Número entero de 2 dígitos.
     
-    final short DURACION_BATERIA= 300 ;
+    short duracionBateria ;
+    final short BATERIA_MAXIMA = 300 ;
+    final short BATERIA_MINIMA = 0 ;
     
     
     // ----------------- MÉTODOS ----------------
@@ -35,6 +37,7 @@ public class Portatil extends Ordenador{
             
             super() ;
             this.pulgadas = 0 ;
+            this.duracionBateria = 300 ;
         }
         
 
@@ -55,6 +58,7 @@ public class Portatil extends Ordenador{
         
         super(num_serie, marca, modelo, memoriaRam, procesador, nucleos, tipoDiscoDuro, arrancado);
         this.setPulgadas(pulgadas) ;
+        this.duracionBateria = BATERIA_MAXIMA ;
     }
         
         
@@ -111,9 +115,42 @@ public class Portatil extends Ordenador{
         
         // ------ MÉTODOS PERSONALIZADOS ------
         
-        public void cargar(int minutos){
+        
+        public short cargar(int minutos){
+            // MÉTODO QUE SUMA LA BATERÍA PASANDO COMO PARÁMETRO
             
+            if (duracionBateria < BATERIA_MAXIMA) 
+                // Si el nivel de la batería está por debajo de la carga completa...
+            {
+                duracionBateria += minutos ; // ... realizará la carga, pero...
+                
+                if (duracionBateria >= BATERIA_MAXIMA)
+                    //...si la duración sobrepasa la carga máxima...
+                {
+                    duracionBateria = BATERIA_MAXIMA ; // ...será igual a la carga máxima,
+                }
+                
+            }
             
+            return this.duracionBateria ;
+        }
+        
+        public short descargar(int minutos){
+            // MÉTODO QUE RESTA LA BATERÍA PASADA COMO PARÁMETRO
+            
+            if (duracionBateria > BATERIA_MINIMA)
+                // Si el nivel de la batería está por encima de la descarga completa...
+            {
+                duracionBateria -= minutos ; // ... realiza la descarga, pero...
+                
+                if (duracionBateria <= BATERIA_MINIMA)
+                    // ...si la ducación sobrepasa la descarga completa...
+                {
+                    duracionBateria = BATERIA_MINIMA ; // ... será igual a la la carga mínima.
+                }
+            }
+            
+            return this.duracionBateria ;
         }
         
         
