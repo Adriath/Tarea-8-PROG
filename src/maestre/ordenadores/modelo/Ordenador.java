@@ -280,34 +280,38 @@ abstract public class Ordenador {
              */
             public void setTipoDiscoDuro(String tipoDiscoDuro) {
                 
-                int opcion ;
+                String HDD = "HDD" ;
+                String SSD = "SSD" ;
+                
+                int opcion = 0 ;
                 boolean validador = false ;
                 
                 // Primero voy a confiar en el/la usuario/a y voy a comparar el valor. Si es válido adelante.
                 
-                if (tipoDiscoDuro.equals("HDD")) 
+                if (HDD.equals(tipoDiscoDuro)) 
                 {
-                    opcion = 1 ;
+                    this.tipoDiscoDuro = HDD ;
+                    validador = true ;
                 }
-                else if (tipoDiscoDuro.equals("SSD"))
+                else if (SSD.equals(tipoDiscoDuro))
                 {
-                    opcion = 2 ;
-                }
-                else
-                {
-                    opcion = 0 ;
+                    this.tipoDiscoDuro = SSD ;
+                    validador = true ;
                 }
                 
                 // Si no ha resultado le conduciré a un menú para que elija entre una de los dos constantes.
                 
                 
-                if (( opcion != 1 ) || ( opcion != 2 )) 
+//                if (( opcion != 1 ) || ( opcion != 2 )) 
+                if (!validador) 
                 {
                     do 
                     {
                         System.out.println("\n¿Qué tipo de disco duro tiene: ");
                         System.out.println("\n1. HDD");
                         System.out.println("2. SSD\n");
+                        
+                        opcion = Utilidades.leerByte("\nElige una opción:") ;
 
                         switch (opcion)
                         {
@@ -325,6 +329,7 @@ abstract public class Ordenador {
 
                             default:
                                 System.out.println("\nElige la opción 1 ó 2.") ;
+                                break ;
 
                         }
                         
@@ -394,7 +399,7 @@ abstract public class Ordenador {
         sb.append("\nProcesador = ").append(procesador);
         sb.append("\nNúmero de nucleos = ").append(nucleos);        
         sb.append("\nTipo de disco duro = ").append(tipoDiscoDuro);
-        sb.append("\nArrancado = ").append(arrancado ? "Sí" : "No");
+        sb.append("\nArrancado = ").append(arrancado ? "Sí" : "No") ;
         
         return sb.toString();
     }

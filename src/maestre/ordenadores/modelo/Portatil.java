@@ -19,8 +19,8 @@ public class Portatil extends Ordenador{
     // ---------- DECLARACIÓN DE ATRIBUTOS ----------------
     
     private byte pulgadas ; //Número entero de 2 dígitos.
+    private short duracionBateria ;
     
-    short duracionBateria ;
     final short BATERIA_MAXIMA = 300 ;
     final short BATERIA_MINIMA = 0 ;
     
@@ -105,12 +105,22 @@ public class Portatil extends Ordenador{
         
         
         // ------ TO STRING -------
-        
 
+        
         @Override
         public String toString() {
-            return super.toString() + "Portatil{" + "pulgadas=" + pulgadas + '}'; // TENGO QUE MODIFICARLO
-        }        
+            
+            StringBuilder sb = new StringBuilder();
+            
+            sb.append("\nPORTÁTIL:");
+            sb.append("\n----------------");
+            sb.append(super.toString());
+            sb.append("\nPulgadas = ").append(pulgadas);
+            sb.append("\nDuración bateria = ").append(duracionBateria).append(" minutos");
+            
+            return sb.toString();
+        }
+        
         
         
         // ------ MÉTODOS PERSONALIZADOS ------
@@ -135,6 +145,8 @@ public class Portatil extends Ordenador{
             return this.duracionBateria ;
         }
         
+        
+        
         public short descargar(int minutos){
             // MÉTODO QUE RESTA LA BATERÍA PASADA COMO PARÁMETRO
             
@@ -154,14 +166,22 @@ public class Portatil extends Ordenador{
         }
         
         
+        
         public void dibujar(){ // ---------------- PUESTO PARA FUNCIONA LA EJECUCIÓN ---------
             System.out.println("Dibujado");
         }
         
+        
+        
+        
         public static void main(String[] args) { // --------------------- MAIN DE PRUEBAS ----------------------------------------------------
         
             Portatil portatil1 = new Portatil() ;
+            Portatil portatil2 = new Portatil(( byte)63, "aosñedjfa", "Acer", "Legion", (byte)323, "Intel", (byte)3, "SSD", true) ;
             
             System.out.println(portatil1.toString());
+            System.out.println(portatil2.toString());
+            
+           
     }
 }
