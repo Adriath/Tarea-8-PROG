@@ -95,9 +95,36 @@ public class Portatil extends Ordenador{
                 }
                 
             } while (!validador);
+            
             this.pulgadas = pulgadas;
         }
         
         
+        // ------ TO STRING -------
         
+
+        @Override
+        public String toString() {
+            return super.toString() + "Portatil{" + "pulgadas=" + pulgadas + '}'; // TENGO QUE MODIFICARLO
+        }        
+        
+        
+        // ------ MÉTODOS PERSONALIZADOS ------
+        
+        public void cargar(int minutos){
+            
+            
+        }
+        
+        
+        public void dibujar(){ // ---------------- PUESTO PARA FUNCIONA LA EJECUCIÓN ---------
+            System.out.println("Dibujado");
+        }
+        
+        public static void main(String[] args) { // --------------------- MAIN DE PRUEBAS ----------------------------------------------------
+        
+            Portatil portatil1 = new Portatil() ;
+            
+            System.out.println(portatil1.toString());
+    }
 }

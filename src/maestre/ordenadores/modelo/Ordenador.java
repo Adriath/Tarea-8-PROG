@@ -382,16 +382,24 @@ abstract public class Ordenador {
             
         // --- TO STRING ---
 
-        /**
-         * Método toString() de la clase Ordenador.
-         * 
-         * @return Los atributos del ordenador.
-         */
-            @Override
-        public String toString() {
-            return "Ordenador{" + "memoriaRam=" + memoriaRam + ", nucleos=" + nucleos + ", num_serie=" + num_serie + ", marca=" + marca + 
-                    ", modelo=" + modelo + ", tipoDiscoDuro=" + tipoDiscoDuro + ", procesador=" + procesador + ", arrancado=" + arrancado + '}';
-        }
+    @Override
+    public String toString() {
+        
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("\nNúmero de serie = ").append(num_serie);
+        sb.append("\nMarca = ").append(marca);
+        sb.append("\nModelo = ").append(modelo);
+        sb.append("\nMemoria RAM = ").append(memoriaRam);
+        sb.append("\nProcesador = ").append(procesador);
+        sb.append("\nNúmero de nucleos = ").append(nucleos);        
+        sb.append("\nTipo de disco duro = ").append(tipoDiscoDuro);
+        sb.append("\nArrancado = ").append(arrancado ? "Sí" : "No");
+        
+        return sb.toString();
+    }
+        
+        
         
         
         // ----- MÉTODO EQUALS -------
