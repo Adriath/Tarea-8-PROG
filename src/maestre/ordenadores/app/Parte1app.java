@@ -4,6 +4,7 @@ package maestre.ordenadores.app;
 import maestre.ordenadores.modelo.Ordenador;
 import maestre.ordenadores.modelo.Portatil;
 import maestre.ordenadores.modelo.Sobremesa;
+import utilidades.Utilidades;
 
 /**
  * Primera parte de la aplicación de gestión de ordenadores para la 
@@ -17,6 +18,12 @@ public class Parte1app {
     /* Francisco Adrián Arjona Bravo
         UNIDAD 8: utilización avanzada de clases.
     */
+    
+    
+    // ------------------------------------------------------------
+    // -------------------- MÉTODO MAIN ---------------------------
+    // ------------------------------------------------------------
+    
     
     public static void main(String[] args) {
         
@@ -37,6 +44,40 @@ public class Parte1app {
     lista[3] = sobremesa1 ;
     lista[4] = sobremesa2 ;
     lista[5] = sobremesa3 ;
-   
+    
+    System.out.println("\n¡BIENVENIDO/A A LA APLICACIÓN DE GESTIÓN DE ORDENADORES!");
+    System.out.println("--------------------------------------------------------\n");
+    
+    for (int i = 0; i < lista.length; i++) 
+        {
+            System.out.println(Utilidades.coloreaCadena("\n // Ordenador " + (i + 1) + " //", Utilidades.verde));
+            System.out.println(lista[i].toString()); ;
+        }
+    
+    menu();
+    
+    }
+    
+    
+    // ------------------- OTROS MÉTODOS ------------------------
+    
+    
+    /**
+     * Método privado que muestra el menú de la aplicación.
+     */
+    private static void menu(){
+        
+        System.out.println("\n\t" + Utilidades.coloreaCadena("--------------------------------------", Utilidades.cyan));
+        System.out.println("\t" + Utilidades.coloreaCadena("---------------- MENÚ ----------------", Utilidades.cyan));
+        System.out.println("\t" + Utilidades.coloreaCadena("--------------------------------------\n", Utilidades.cyan));
+        
+        System.out.println("\ta. Listar todos los ordenadores mezclados (portátiles y sobremesa).") ;
+        System.out.println("\tb. Listar sólo los portátiles.") ;
+        System.out.println("\tc. Listar sólo los ordenadores de sobremesa.") ;
+        System.out.println("\td. Encender un ordenador.") ;
+        System.out.println("\te. Apagar un ordenador.") ;
+        System.out.println("\tf. Dibujar un ordenador") ;
+        System.out.println("\tg. Cargar portátiles.") ;
+        System.out.println("\th. Descargar portátiles.\n");
     }
 }
