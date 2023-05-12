@@ -32,9 +32,9 @@ public class Parte1app {
     
     Portatil portatil1 = new Portatil((byte)15, "ej38jj3o8jf", "HP", "Pavilion", (byte)8, "Intel i5 4800U", (byte)2, "HDD", false) ;
     Portatil portatil2 = new Portatil((byte)17, "jñol83m8mñas", "MSI", "Firefly", (byte)16, "Intel i7 9800H", (byte)6, "SSD", false) ;
-    Portatil portatil3 = new Portatil((byte)14, "ajañj-34j3lk8", "Chromebook", "Pixel", (byte)2, "Tensor", (byte)2, "SSD", true) ;
+    Portatil portatil3 = new Portatil((byte)14, "ajañj-34j3lk8", "Chromebook", "Pixel", (byte)2, "Tensor", (byte)2, "SSD", false) ;
     
-    Sobremesa sobremesa1 = new Sobremesa("Gygabyte", "ATI Radeon 7500", "añsoejo8787ñl", "Medion", "Capsule", (byte)6, "AMD Tyzon", (byte)4, "SSD", true) ;
+    Sobremesa sobremesa1 = new Sobremesa("Gygabyte", "ATI Radeon 7500", "añsoejo8787ñl", "Medion", "Capsule", (byte)6, "AMD Tyzon", (byte)4, "SSD", false) ;
     Sobremesa sobremesa2 = new Sobremesa("IBM", "NVidia GTX 4800", "jñaolj8ki3jijim3", "Microsoft", "Norface", (byte)16, "AMD Tyzon", (byte)10, "SSD", false) ;
     Sobremesa sobremesa3 = new Sobremesa("Gygabyte", "placa de tostadora", "jja83mnh88hn233", "Taurus", "Xtreme", (byte)1, "KillerPatient", (byte)1, "HDD", false) ;
     
@@ -181,5 +181,88 @@ public class Parte1app {
             lista[i].arrancar() ;
             System.out.println(Utilidades.coloreaCadena("\nEL ORDENADOR " + posicion + " HA SIDO ARRANCADO CON ÉXITO.\n", Utilidades.verde)) ;
         }
+    }
+    
+    
+     /**
+     * Método que apaga un ordenador contenido en la lista (array).
+     * 
+     * @param lista Array de tipo Ordenador.
+     * @param posicion Posición en la lista del ordenador que queremos arrancar.
+     */
+    private static void apagar(Ordenador[] lista, int posicion){
+        
+        int i = 0;
+        boolean validador = false ;
+        
+        // Comprobamos en primer lugar que la posición pasada por parámetro sea compatible con el array.
+        
+        do
+        { 
+            if (( posicion > 0 ) && ( posicion <= lista.length) ) 
+                // Si la posición escogida es mayor que 0 y menor a la longitud del array...
+            {
+                i = posicion - 1 ; // ...trata i como un valor menos a la posición para igualar la percepción humana a las posiciones del lenguaje...
+                validador = true ; // ...y sal del bucle para continuar.
+            }
+            else
+                // Si el valor no era permitido avisa del rango por pantalla y vuelve a pedir el valor.
+            {
+                System.out.println(Utilidades.coloreaCadena("\nLa posición elegida no puede ser menor que 1 ni mayor que " + lista.length + ".\n", Utilidades.rojo)) ;
+                posicion = Utilidades.leerEnteroConLimiteDeDigitos("\nIntroduce la posición de nuevo: ", lista.length) ;
+            }
+            
+        } while (!validador);
+        
+        // Si hemos llegado hasta aquí es porque el valor es válido. Nos encontramos con dos opciones:
+        
+        if (!( lista[i].isArrancado() ))
+            // Si el ordenador ya está apagado avisará por pantalla.
+        {
+            System.out.println(Utilidades.coloreaCadena("\n/ ERROR /", Utilidades.rojo)) ;
+            System.out.println("El ordenador " + posicion + " ya está apagado.\n") ;
+        }
+        else
+            // Si el ordenador no está arrancado lo arrancará y avisará por pantalla.
+        {
+            lista[i].apagar();
+            System.out.println(Utilidades.coloreaCadena("\nEL ORDENADOR " + posicion + " HA SIDO APAGADO CON ÉXITO.\n", Utilidades.verde)) ;
+        }
+    }
+    
+    /**
+     * Método que muestra por pantalla las características de un ordenador 
+     * contenido en una posición de un array y dibuja un gráfico basado en su 
+     * memoria RAM y número de núcleos.
+     * 
+     * @param lista Array de tipo Ordenador.
+     * @param posicion Posición en la lista del ordenador que queremos dibujar.
+     */
+    private static void dibujar(Ordenador[] lista, int posicion){
+        
+        int i = 0;
+        boolean validador = false ;
+        
+        // Comprobamos en primer lugar que la posición pasada por parámetro sea compatible con el array.
+        
+        do
+        { 
+            if (( posicion > 0 ) && ( posicion <= lista.length) ) 
+                // Si la posición escogida es mayor que 0 y menor a la longitud del array...
+            {
+                i = posicion - 1 ; // ...trata i como un valor menos a la posición para igualar la percepción humana a las posiciones del lenguaje...
+                validador = true ; // ...y sal del bucle para continuar.
+            }
+            else
+                // Si el valor no era permitido avisa del rango por pantalla y vuelve a pedir el valor.
+            {
+                System.out.println(Utilidades.coloreaCadena("\nLa posición elegida no puede ser menor que 1 ni mayor que " + lista.length + ".\n", Utilidades.rojo)) ;
+                posicion = Utilidades.leerEnteroConLimiteDeDigitos("\nIntroduce la posición de nuevo: ", lista.length) ;
+            }
+            
+        } while (!validador);
+        
+        System.out.println(Utilidades.coloreaCadena("\nCaracterísticas del ordenador " + posicion, Utilidades.cyan)) ;
+        lista[i].dibujar() ; // Muestra sus datos y dibuja el gráfico.
     }
 }

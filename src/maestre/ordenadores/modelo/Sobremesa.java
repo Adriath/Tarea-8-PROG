@@ -156,6 +156,8 @@ public class Sobremesa extends Ordenador{
                         System.out.print(ASTERISCO);
                     }
                 }
+                
+                System.out.print("\n");
             }
             else
                 // Si no está arrancado indícalo con un mensaje.
