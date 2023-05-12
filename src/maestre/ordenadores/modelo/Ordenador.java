@@ -31,6 +31,9 @@ abstract public class Ordenador {
  
     
     
+    /**
+     * Enum para los tipos de disco duro.
+     */
     public enum TipoDiscoDuro{
         // ENUM PARA EL TIPO DE DISCO DURO
         

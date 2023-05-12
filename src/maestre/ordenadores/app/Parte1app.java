@@ -25,6 +25,11 @@ public class Parte1app {
     // ------------------------------------------------------------
     
     
+    /**
+     * Método main de la clase Parte1App
+     * 
+     * @param args 
+     */
     public static void main(String[] args) {
         
         
@@ -49,8 +54,8 @@ public class Parte1app {
         lista[4] = sobremesa2 ;
         lista[5] = sobremesa3 ;
 
-        System.out.println("\n¡BIENVENIDO/A A LA APLICACIÓN DE GESTIÓN DE ORDENADORES!");
-        System.out.println("--------------------------------------------------------\n");
+        System.out.println(Utilidades.coloreaCadena("\n¡BIENVENIDO/A A LA APLICACIÓN DE GESTIÓN DE ORDENADORES!", Utilidades.amarillo)) ;
+        System.out.println(Utilidades.coloreaCadena("--------------------------------------------------------\n", Utilidades.amarillo)) ;
         
         System.out.println("A continuación vas a visualizar las características y las posiciones de los distintos ordenadores.");
         System.out.println("Podrás interactuar con estos datos a través del menú. Cuando necesites ver las posiciones utiliza la opción LISTAR.\n") ;
@@ -124,8 +129,8 @@ public class Parte1app {
         } while (!validador);
     
         
-        System.out.println("\n--------------------------------------------------------");
-        System.out.println("¡GRACIAS POR UTILIZAR LA APLICACIÓN DE GESTIÓN DE ORDENADORES!\n");
+        System.out.println(Utilidades.coloreaCadena("\n--------------------------------------------------------", Utilidades.amarillo)) ;
+        System.out.println(Utilidades.coloreaCadena("¡GRACIAS POR UTILIZAR LA APLICACIÓN DE GESTIÓN DE ORDENADORES!\n", Utilidades.amarillo)) ;
     }
     
     
