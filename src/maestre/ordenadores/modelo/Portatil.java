@@ -171,28 +171,18 @@ public class Portatil extends Ordenador{
         public void dibujar(){
             
             final String ASTERISCO = "*" ;
-            String[][] asteriscos = new String[this.getMemoriaRam()][this.getNucleos()] ;
             
             System.out.println(this.toString());
             
-            for (int i = 0; i < asteriscos.length; i++) 
+            if (this.isArrancado())
             {
-                for (int j = 0; j < asteriscos[0].length; j++) 
+                for (int i = 0; i < this.getNucleos(); i++) 
                 {
-                    asteriscos[i][j] = ASTERISCO ;
-                }
-                
-            }
-            
-            if (this.isArrancado())  // ESTOY CON ESTA PARTE
-            {
-                for (int i = 0; i < asteriscos.length; i++) 
-                {
-                    System.out.print(asteriscos[i][0]);
+                    System.out.println("");
                     
-                    for (int j = 0; j < asteriscos[0].length; j++) 
+                    for (int j = 0; j < this.getMemoriaRam(); j++) 
                     {
-                        
+                        System.out.print(ASTERISCO);
                     }
                 }
             }

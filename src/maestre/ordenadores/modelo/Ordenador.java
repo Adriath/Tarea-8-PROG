@@ -392,7 +392,7 @@ abstract public class Ordenador {
         
         StringBuilder sb = new StringBuilder();
         
-        sb.append("\nNúmero de serie = ").append(num_serie);
+        sb.append("\nNúmero de serie = ").append(num_serie.toUpperCase());
         sb.append("\nMarca = ").append(marca);
         sb.append("\nModelo = ").append(modelo);
         sb.append("\nMemoria RAM = ").append(memoriaRam).append(" GB");
