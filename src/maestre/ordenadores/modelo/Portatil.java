@@ -131,9 +131,14 @@ public class Portatil extends Ordenador{
         // ------ MÉTODOS PERSONALIZADOS ------
         
         
+        /**
+         * Método que suma a la autonomía de la batería los minutos pasados por parámetro.
+         * 
+         * @param minutos. Minutos que sea desea cargar.
+         * @return Devuelve la duración de la batería.
+         */
         public short cargar(int minutos){
-            // MÉTODO QUE SUMA LA BATERÍA PASANDO COMO PARÁMETRO
-            
+                        
             if (duracionBateria < BATERIA_MAXIMA) 
                 // Si el nivel de la batería está por debajo de la carga completa...
             {
@@ -152,6 +157,12 @@ public class Portatil extends Ordenador{
         
         
         
+        /**
+         * Método que resta a la autonomía de la batería los minutos pasados por parámetro.
+         * 
+         * @param minutos Minutos que se desea descargar.
+         * @return Devuelve la duración de la batería.
+         */
         public short descargar(int minutos){
             // MÉTODO QUE RESTA LA BATERÍA PASADA COMO PARÁMETRO
             

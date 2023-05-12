@@ -265,4 +265,75 @@ public class Parte1app {
         System.out.println(Utilidades.coloreaCadena("\nCaracterísticas del ordenador " + posicion, Utilidades.cyan)) ;
         lista[i].dibujar() ; // Muestra sus datos y dibuja el gráfico.
     }
+    
+    
+    
+    /**
+     * Método que carga la batería de todos los portátiles contenidos en la 
+     * lista (array) de ordenadores. Mostrará por pantalla la autonomía total de 
+     * cada uno de ellos tras la carga.
+     * 
+     * @param lista Array de tipo Ordenador.
+     * @param minutos Minutos que se quieren añadir a la autonomía de la batería.
+     */
+    private static void cargar(Ordenador[] lista, int minutos){
+        
+        short autonomia ;
+        
+        Portatil[] listaPortatil =  new Portatil[lista.length] ;
+        
+        System.out.println(Utilidades.coloreaCadena("\nLAS BATERÍAS HAN SIDO CARGADAS CON ÉXITO.", Utilidades.verde)) ;
+        
+        for (int i = 0; i < lista.length; i++) {
+            
+            if (lista[i] instanceof Portatil){
+                
+                listaPortatil[i] = (Portatil)lista[i] ;
+
+                if (listaPortatil[i] != null)
+                {
+                    autonomia = listaPortatil[i].cargar(minutos) ;
+                    System.out.println(Utilidades.coloreaCadena("\nLa autonomía del portátil " + (i + 1) + " es de " + autonomia + " minutos.", Utilidades.cyan)) ;
+                }
+            }
+        }
+
+        System.out.print("\n");
+    }
+    
+    
+    
+    /**
+     * Método que descarga la batería de todos los portátiles contenidos en la 
+     * lista (array) de ordenadores. Mostrará por pantalla la autonomía total de 
+     * cada uno de ellos tras la descarga.
+     * 
+     * @param lista Array de tipo Ordenador.
+     * @param minutos Minutos que se quieren quitar a la autonomía de la batería.
+     */
+    private static void descargar(Ordenador[] lista, int minutos){
+        
+        short autonomia ;
+        
+        Portatil[] listaPortatil =  new Portatil[lista.length] ;
+        
+        System.out.println(Utilidades.coloreaCadena("\nLAS BATERÍAS HAN SIDO DESCARGADAS CON ÉXITO.", Utilidades.verde)) ;
+        
+        for (int i = 0; i < lista.length; i++) {
+            
+            if (lista[i] instanceof Portatil){
+                
+                listaPortatil[i] = (Portatil)lista[i] ;
+
+                if (listaPortatil[i] != null)
+                {
+                    autonomia = listaPortatil[i].descargar(minutos) ;
+                    System.out.println(Utilidades.coloreaCadena("\nLa autonomía del portátil " + (i + 1) + " es de " + autonomia + " minutos.", Utilidades.cyan)) ;
+                }
+            }
+        }
+
+        System.out.print("\n");
+    }
 }
+
