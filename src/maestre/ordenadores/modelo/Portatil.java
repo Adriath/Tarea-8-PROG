@@ -121,7 +121,7 @@ public class Portatil extends Ordenador{
             sb.append("\n----------------");
             sb.append(super.toString());
             sb.append("\nPulgadas = ").append(pulgadas);
-            sb.append("\nDuración bateria = ").append(duracionBateria).append(" minutos");
+            sb.append("\nDuración batería = ").append(duracionBateria).append(" minutos");
             
             return sb.toString();
         }

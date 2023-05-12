@@ -48,13 +48,7 @@ public class Parte1app {
     System.out.println("\n¡BIENVENIDO/A A LA APLICACIÓN DE GESTIÓN DE ORDENADORES!");
     System.out.println("--------------------------------------------------------\n");
     
-    for (int i = 0; i < lista.length; i++) 
-        {
-            System.out.println(Utilidades.coloreaCadena("\n // Ordenador " + (i + 1) + " //", Utilidades.verde));
-            System.out.println(lista[i].toString()); ;
-        }
-    
-    menu();
+        listarPortatiles(lista);
     
     }
     
@@ -79,5 +73,40 @@ public class Parte1app {
         System.out.println("\tf. Dibujar un ordenador") ;
         System.out.println("\tg. Cargar portátiles.") ;
         System.out.println("\th. Descargar portátiles.\n");
+    }
+    
+    
+    /**
+     * Método que lista los objetos de tipo Ordenador y los muestra por pantalla.
+     * 
+     * @param lista Array de tipo Ordenador.
+     */
+    private static void listar(Ordenador[] lista){
+        
+        for (int i = 0; i < lista.length; i++) 
+        {
+            System.out.println(Utilidades.coloreaCadena("\n // Ordenador " + (i + 1) + " //", Utilidades.verde));
+            System.out.println(lista[i].toString()); ;
+        }
+    }
+    
+    
+    /**
+     * Método que lista los objetos de tipo Portatil y los muestra por pantalla.
+     * 
+     * @param lista Array de tipo Ordenador.
+     */
+    private static void listarPortatiles(Ordenador[] lista){
+        
+        System.out.println(Utilidades.coloreaCadena("\n // Lista de portátiles " + "//", Utilidades.verde));
+        
+        for (int i = 0; i < lista.length; i++) 
+        {
+            if (lista[i] instanceof Portatil) 
+            {
+                System.out.println(Utilidades.coloreaCadena("\nPortátil " + (i + 1), Utilidades.verde));
+                System.out.println(lista[i].toString()); ;
+            }
+        }
     }
 }
