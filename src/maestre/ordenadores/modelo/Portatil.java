@@ -87,14 +87,14 @@ public class Portatil extends Ordenador{
             
             do 
             {
-                if (( pulgadas > 0 ) && ( pulgadas <= 17))
+                if (( pulgadas >= 7 ) && ( pulgadas <= 17))
                 {
                     this.pulgadas = pulgadas ;
                     validador = true ;
                 }
                 else
                 {
-                    System.out.println(Utilidades.coloreaCadena("\nLos portátiles actuales no suelen tener más de 17 pulgadas.", Utilidades.rojo));
+                    System.out.println(Utilidades.coloreaCadena("\nLos portátiles actuales no suelen tener menos de 7 ni más de 17 pulgadas.", Utilidades.rojo));
                     pulgadas = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce el número de pulgadas:", 2) ;
                 }
                 
@@ -203,22 +203,4 @@ public class Portatil extends Ordenador{
             }
         }
         
-        
-        
-        
-        public static void main(String[] args) { // --------------------- MAIN DE PRUEBAS ----------------------------------------------------
-        
-            Portatil portatil1 = new Portatil() ;
-            Portatil portatil2 = new Portatil(( byte)17, "aosñedjfa", "Acer", "Legion", (byte)8, "Intel", (byte)4, "SSD", true) ;
-            Portatil portatil3 = new Portatil(( byte)15, "aosñedjfa", "MPI", "34X", (byte)4, "AMD", (byte)5, "HDD", true) ;
-            Sobremesa sobremeas1 = new Sobremesa("ToPepino", "NVidia", "jal3jl´kja", "HP", "Pavilion", (byte)4, "Tensor", (byte)6, "HDD", false) ;
-            
-            sobremeas1.dibujar();
-            sobremeas1.arrancar();
-            
-            sobremeas1.dibujar();
-            sobremeas1.apagar();
-            sobremeas1.dibujar();
-           
-    }
 }

@@ -159,15 +159,15 @@ abstract public class Ordenador {
                 
                 do
                 {
-                    if (( nucleos > 0 ) && ( nucleos <= 99)) 
+                    if (( nucleos > 0 ) && ( nucleos <= 18)) 
                     {
                         this.nucleos = nucleos ;
                         validador = true ;
                     }
                     else
                     {
-                        System.out.println(Utilidades.coloreaCadena("\nEl valor sólo puede tener 2 dígitos como máximo.", Utilidades.rojo));
-                        nucleos = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce el númeor de núcleos:", 2) ;
+                        System.out.println(Utilidades.coloreaCadena("\nLos ordenadores actuales difícilmente pasan de los 18 núcleos.", Utilidades.rojo));
+                        nucleos = Utilidades.leerByteConLimiteDeDigitos("\nIntroduce el número de núcleos:", 2) ;
                     }
                     
                 } while (!validador);
