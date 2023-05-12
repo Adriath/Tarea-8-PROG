@@ -122,7 +122,7 @@ public class Parte1app {
                     
                 default:
                     
-                    System.out.println(Utilidades.coloreaCadena("\nTienes que seleccionar una opción válidad:\n", Utilidades.rojo)) ;
+                    System.out.println(Utilidades.coloreaCadena("\nTienes que seleccionar una opción válida.\n", Utilidades.rojo)) ;
                     break ;
             }
 
