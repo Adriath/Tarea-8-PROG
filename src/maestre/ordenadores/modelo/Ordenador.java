@@ -525,7 +525,7 @@ abstract public class Ordenador {
 "                            | || || |    / /   \\ \\   \n" +
 "                            | || || |   / /     \\ \\__\n" +
 "                            |_||_||_|  /_/       \\___|");
-            
+                
                 this.arrancado = false ;
             }
         }

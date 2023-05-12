@@ -48,8 +48,6 @@ public class Parte1app {
     System.out.println("\n¡BIENVENIDO/A A LA APLICACIÓN DE GESTIÓN DE ORDENADORES!");
     System.out.println("--------------------------------------------------------\n");
     
-        listarPortatiles(lista);
-    
     }
     
     
@@ -98,15 +96,77 @@ public class Parte1app {
      */
     private static void listarPortatiles(Ordenador[] lista){
         
+        int contador = 1 ;
+        
         System.out.println(Utilidades.coloreaCadena("\n // Lista de portátiles " + "//", Utilidades.verde));
         
         for (int i = 0; i < lista.length; i++) 
         {
             if (lista[i] instanceof Portatil) 
             {
-                System.out.println(Utilidades.coloreaCadena("\nPortátil " + (i + 1), Utilidades.verde));
+                System.out.println(Utilidades.coloreaCadena("\nPortátil " + contador, Utilidades.verde));
                 System.out.println(lista[i].toString()); ;
+                
+                contador++ ;
             }
+        }
+    }
+    
+    
+    /**
+     * Método que lista los objetos de tipo Sobremesa y los muestra por pantalla.
+     * 
+     * @param lista Array de tipo Ordenador.
+     */
+    private static void listarSobremesa(Ordenador[] lista){
+        
+        int contador = 1 ;
+        
+        System.out.println(Utilidades.coloreaCadena("\n // Lista de ordenadores de sobremesa " + "//", Utilidades.verde));
+        
+         for (int i = 0; i < lista.length; i++) 
+        {
+            if (lista[i] instanceof Sobremesa) 
+            {
+                System.out.println(Utilidades.coloreaCadena("\nOrdenador de sobremesa " + contador, Utilidades.verde));
+                System.out.println(lista[i].toString()); ;
+                
+                contador++ ;
+            }
+        }
+    }
+    
+    
+    private static void encender(Ordenador[] lista, int posicion){
+        
+        int i = 0;
+        boolean validador = false ;
+        
+        do 
+        {
+            if (( posicion > 0 ) && ( posicion <= lista.length) ) 
+            {
+                i = posicion - 1 ;
+                validador = true ;
+            }
+            else
+            {
+                System.out.println(Utilidades.coloreaCadena("\nLa posición elegida no puede ser menor que 1 ni mayor que " + lista.length + ".\n", Utilidades.rojo)) ;
+                posicion = Utilidades.leerEnteroConLimiteDeDigitos("\nIntroduce la posición de nuevo: ", lista.length) ;
+            }
+            
+        } while (!validador);
+        
+        
+        if (lista[i].isArrancado()) 
+        {
+            System.out.println(Utilidades.coloreaCadena("\n/ ERROR /", Utilidades.rojo)) ;
+            System.out.println("El ordenador " + posicion + " ya está arrancado.\n") ;
+        }
+        else
+        {
+            lista[i].arrancar() ;
+            System.out.println(Utilidades.coloreaCadena("\nEL ORDENADOR " + posicion + " HA SIDO ARRANCADO CON ÉXITO.\n", Utilidades.verde)) ;
         }
     }
 }

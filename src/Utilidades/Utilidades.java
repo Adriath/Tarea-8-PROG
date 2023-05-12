@@ -652,7 +652,7 @@ public class Utilidades {
      */
     public static String coloreaCadena(String cadena, String color){
         
-        String cadenaColoreada = color + cadena + reset;
+        String cadenaColoreada = color + cadena.replaceAll("\n", reset + "\n" + color) + reset ;
         
         return cadenaColoreada ;
     }
