@@ -137,19 +137,29 @@ public class Parte1app {
     }
     
     
+    /**
+     * Método que enciende un ordenador contenido en la lista (array).
+     * 
+     * @param lista Array de tipo Ordenador.
+     * @param posicion Posición en la lista del ordenador que queremos arrancar.
+     */
     private static void encender(Ordenador[] lista, int posicion){
         
         int i = 0;
         boolean validador = false ;
         
-        do 
-        {
+        // Comprobamos en primer lugar que la posición pasada por parámetro sea compatible con el array.
+        
+        do
+        { 
             if (( posicion > 0 ) && ( posicion <= lista.length) ) 
+                // Si la posición escogida es mayor que 0 y menor a la longitud del array...
             {
-                i = posicion - 1 ;
-                validador = true ;
+                i = posicion - 1 ; // ...trata i como un valor menos a la posición para igualar la percepción humana a las posiciones del lenguaje...
+                validador = true ; // ...y sal del bucle para continuar.
             }
             else
+                // Si el valor no era permitido avisa del rango por pantalla y vuelve a pedir el valor.
             {
                 System.out.println(Utilidades.coloreaCadena("\nLa posición elegida no puede ser menor que 1 ni mayor que " + lista.length + ".\n", Utilidades.rojo)) ;
                 posicion = Utilidades.leerEnteroConLimiteDeDigitos("\nIntroduce la posición de nuevo: ", lista.length) ;
@@ -157,13 +167,16 @@ public class Parte1app {
             
         } while (!validador);
         
+        // Si hemos llegado hasta aquí es porque el valor es válido. Nos encontramos con dos opciones:
         
-        if (lista[i].isArrancado()) 
+        if (lista[i].isArrancado())
+            // Si el ordenador ya está arrancado avisará por pantalla.
         {
             System.out.println(Utilidades.coloreaCadena("\n/ ERROR /", Utilidades.rojo)) ;
             System.out.println("El ordenador " + posicion + " ya está arrancado.\n") ;
         }
         else
+            // Si el ordenador no está arrancado lo arrancará y avisará por pantalla.
         {
             lista[i].arrancar() ;
             System.out.println(Utilidades.coloreaCadena("\nEL ORDENADOR " + posicion + " HA SIDO ARRANCADO CON ÉXITO.\n", Utilidades.verde)) ;
