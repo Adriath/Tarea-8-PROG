@@ -13,7 +13,7 @@ import java.util.Scanner;
  * Ejemplo: un método para leer por pantalla una cadena de caracteres.
  * 
  * @author Adrián Arjona
- * @version tarea 8
+ * @version tarea 8 // Mayo 2023
  */
 public class Utilidades {
     
