@@ -302,7 +302,6 @@ abstract public class Ordenador {
                 // Si no ha resultado le conduciré a un menú para que elija entre una de los dos constantes.
                 
                 
-//                if (( opcion != 1 ) || ( opcion != 2 )) 
                 if (!validador) 
                 {
                     do 
@@ -387,23 +386,28 @@ abstract public class Ordenador {
             
         // --- TO STRING ---
 
-    @Override
-    public String toString() {
-        
-        StringBuilder sb = new StringBuilder();
-        
-        sb.append("\nNúmero de serie = ").append(num_serie.toUpperCase());
-        sb.append("\nMarca = ").append(marca);
-        sb.append("\nModelo = ").append(modelo);
-        sb.append("\nMemoria RAM = ").append(memoriaRam).append(" GB");
-        sb.append("\nProcesador = ").append(procesador);
-        sb.append("\nNúmero de nucleos = ").append(nucleos);        
-        sb.append("\nTipo de disco duro = ").append(tipoDiscoDuro);
-        sb.append("\nArrancado = ").append(arrancado ? "Sí" : "No") ;
-        
-        return sb.toString();
-    }
-        
+    
+        /**
+         * Método toString() de la clase Ordenador.
+         * 
+         * @return Datos del ordenador.
+         */    
+        @Override
+        public String toString() {
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.append("\nNúmero de serie = ").append(num_serie.toUpperCase());
+            sb.append("\nMarca = ").append(marca);
+            sb.append("\nModelo = ").append(modelo);
+            sb.append("\nMemoria RAM = ").append(memoriaRam).append(" GB");
+            sb.append("\nProcesador = ").append(procesador);
+            sb.append("\nNúmero de nucleos = ").append(nucleos);        
+            sb.append("\nTipo de disco duro = ").append(tipoDiscoDuro);
+            sb.append("\nArrancado = ").append(arrancado ? "Sí" : "No") ;
+
+            return sb.toString();
+        }
         
         
         
@@ -415,7 +419,7 @@ abstract public class Ordenador {
          * @param obj Objeto que se quiere comparar.
          * @return Devuelve true si son iguales, false si no lo son.
          */
-        @Override
+            @Override
         public boolean equals(Object obj){
             
             if (obj != null && !(obj instanceof Ordenador)) 
@@ -433,6 +437,7 @@ abstract public class Ordenador {
             return iguales ;
         }
        
+        
             
         // --------- MÉTODOS PERSONALIZADOS --------
             

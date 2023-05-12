@@ -37,7 +37,7 @@ public class Portatil extends Ordenador{
             
             super() ;
             this.pulgadas = 0 ;
-            this.duracionBateria = 300 ;
+            this.duracionBateria = BATERIA_MAXIMA ;
         }
         
 
@@ -87,7 +87,7 @@ public class Portatil extends Ordenador{
             
             do 
             {
-                if (( pulgadas > 0 ) && ( pulgadas <= 17)) 
+                if (( pulgadas > 0 ) && ( pulgadas <= 17))
                 {
                     this.pulgadas = pulgadas ;
                     validador = true ;
@@ -107,7 +107,12 @@ public class Portatil extends Ordenador{
         // ------ TO STRING -------
 
         
-        @Override
+        /**
+         * Método toString() de la clase Portatil.
+         * 
+         * @return Datos del ordenador portátil.
+         */
+            @Override
         public String toString() {
             
             StringBuilder sb = new StringBuilder();
@@ -166,8 +171,12 @@ public class Portatil extends Ordenador{
         }
         
         
-        
-        @Override
+        /**
+         * Método que muestra los datos del ordenador y, si está arrancado, 
+         * mostrará también una serie de asteriscos que representan los núcleos (filas) 
+         * y los GB de memoria RAM (columnas).
+         */
+            @Override
         public void dibujar(){
             
             final String ASTERISCO = "*" ;
@@ -175,6 +184,7 @@ public class Portatil extends Ordenador{
             System.out.println(this.toString());
             
             if (this.isArrancado())
+                // Si el ordenador está arrancado haz el gráfico de asteriscos.
             {
                 for (int i = 0; i < this.getNucleos(); i++) 
                 {
@@ -187,6 +197,7 @@ public class Portatil extends Ordenador{
                 }
             }
             else
+                // Si no está arrancado indícalo con un mensaje.
             {
                 System.out.println(Utilidades.coloreaCadena("\nEl ordenador no está arrancado.", Utilidades.rojo)) ;
             }
@@ -199,8 +210,15 @@ public class Portatil extends Ordenador{
         
             Portatil portatil1 = new Portatil() ;
             Portatil portatil2 = new Portatil(( byte)17, "aosñedjfa", "Acer", "Legion", (byte)8, "Intel", (byte)4, "SSD", true) ;
+            Portatil portatil3 = new Portatil(( byte)15, "aosñedjfa", "MPI", "34X", (byte)4, "AMD", (byte)5, "HDD", true) ;
+            Sobremesa sobremeas1 = new Sobremesa("ToPepino", "NVidia", "jal3jl´kja", "HP", "Pavilion", (byte)4, "Tensor", (byte)6, "HDD", false) ;
             
-            portatil2.dibujar();
+            sobremeas1.dibujar();
+            sobremeas1.arrancar();
+            
+            sobremeas1.dibujar();
+            sobremeas1.apagar();
+            sobremeas1.dibujar();
            
     }
 }
