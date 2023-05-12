@@ -28,29 +28,104 @@ public class Parte1app {
     public static void main(String[] args) {
         
         
-    Ordenador[] lista = new Ordenador[6] ;
+        char opcion ;
+
+        boolean validador = false ;
+
+        Ordenador[] lista = new Ordenador[6] ;
+
+        Portatil portatil1 = new Portatil((byte)15, "ej38jj3o8jf", "HP", "Pavilion", (byte)8, "Intel i5 4800U", (byte)2, "HDD", false) ;
+        Portatil portatil2 = new Portatil((byte)17, "jñol83m8mñas", "MSI", "Firefly", (byte)16, "Intel i7 9800H", (byte)6, "SSD", false) ;
+        Portatil portatil3 = new Portatil((byte)14, "ajañj-34j3lk8", "Chromebook", "Pixel", (byte)2, "Tensor", (byte)2, "SSD", false) ;
+
+        Sobremesa sobremesa1 = new Sobremesa("Gygabyte", "ATI Radeon 7500", "añsoejo8787ñl", "Medion", "Capsule", (byte)6, "AMD Tyzon", (byte)4, "SSD", false) ;
+        Sobremesa sobremesa2 = new Sobremesa("IBM", "NVidia GTX 4800", "jñaolj8ki3jijim3", "Microsoft", "Norface", (byte)16, "AMD Tyzon", (byte)10, "SSD", false) ;
+        Sobremesa sobremesa3 = new Sobremesa("Gygabyte", "placa de tostadora", "jja83mnh88hn233", "Taurus", "Xtreme", (byte)1, "KillerPatient", (byte)1, "HDD", false) ;
+
+        lista[0] = portatil1 ;
+        lista[1] = portatil2 ;
+        lista[2] = portatil3 ;
+        lista[3] = sobremesa1 ;
+        lista[4] = sobremesa2 ;
+        lista[5] = sobremesa3 ;
+
+        System.out.println("\n¡BIENVENIDO/A A LA APLICACIÓN DE GESTIÓN DE ORDENADORES!");
+        System.out.println("--------------------------------------------------------\n");
+        
+        System.out.println("A continuación vas a visualizar las características y las posiciones de los distintos ordenadores.");
+        System.out.println("Podrás interactuar con estos datos a través del menú. Cuando necesites ver las posiciones utiliza la opción LISTAR.\n") ;
+        
+        listar(lista) ;
+
+        do{
+            
+            menu() ;
+            
+            opcion = Character.toLowerCase(Utilidades.leerCaracter("\nIntroduce la opción que deseas ejecutar:")) ;
+
+            switch (opcion){
+
+                case 'a': // LISTAR
+
+                    listar(lista) ;
+                    break ;
+
+                case 'b': // LISTAR PORTÁTILES
+
+                    listarPortatiles(lista) ;
+                    break ;
+                    
+                case 'c': // LISTAR SOBREMESA
+                    
+                    listarSobremesa(lista) ;
+                    break ;
+                    
+                case 'd': // ENCENDER
+                    
+                    int posicion = Utilidades.leerEntero("\nElige la posición del ordenador que quieres encender:") ;
+                    encender(lista, posicion) ;
+                    break ;
+                    
+                case 'e': // APAGAR
+                    
+                    posicion = Utilidades.leerEntero("\nElige la posición del ordenador que quieres apagar:") ;
+                    apagar(lista, posicion) ;
+                    break ;
+                    
+                case 'f': // DIBUJAR
+                    
+                    posicion = Utilidades.leerEntero("\nElige la posición del ordenador que quieres dibujar:") ;
+                    dibujar(lista, posicion) ;
+                    break ;
+                    
+                case 'g': // CARGAR
+                    
+                    int minutos = Utilidades.leerEntero("\n¿Cuántos minutos de autonomía quieres añadir a la carga?") ;
+                    cargar(lista, minutos) ;
+                    break ;
+                    
+                case 'h': // DESCARGAR
+                    
+                    minutos = Utilidades.leerEntero("\n¿Cuántos minutos de autonomía quieres quitar a la carga?") ;
+                    descargar(lista, minutos) ;
+                    break ;
+                    
+                case 'i': // SALIR
+                    
+                    validador = !( Utilidades.secuenciaSalida("\n¿De verdad quieres salir de la aplicación?") ) ;
+                    break ;
+                    
+                default:
+                    
+                    System.out.println(Utilidades.coloreaCadena("\nTienes que seleccionar una opción válidad:\n", Utilidades.rojo)) ;
+                    break ;
+            }
+
+        } while (!validador);
     
-    Portatil portatil1 = new Portatil((byte)15, "ej38jj3o8jf", "HP", "Pavilion", (byte)8, "Intel i5 4800U", (byte)2, "HDD", false) ;
-    Portatil portatil2 = new Portatil((byte)17, "jñol83m8mñas", "MSI", "Firefly", (byte)16, "Intel i7 9800H", (byte)6, "SSD", false) ;
-    Portatil portatil3 = new Portatil((byte)14, "ajañj-34j3lk8", "Chromebook", "Pixel", (byte)2, "Tensor", (byte)2, "SSD", false) ;
-    
-    Sobremesa sobremesa1 = new Sobremesa("Gygabyte", "ATI Radeon 7500", "añsoejo8787ñl", "Medion", "Capsule", (byte)6, "AMD Tyzon", (byte)4, "SSD", false) ;
-    Sobremesa sobremesa2 = new Sobremesa("IBM", "NVidia GTX 4800", "jñaolj8ki3jijim3", "Microsoft", "Norface", (byte)16, "AMD Tyzon", (byte)10, "SSD", false) ;
-    Sobremesa sobremesa3 = new Sobremesa("Gygabyte", "placa de tostadora", "jja83mnh88hn233", "Taurus", "Xtreme", (byte)1, "KillerPatient", (byte)1, "HDD", false) ;
-    
-    lista[0] = portatil1 ;
-    lista[1] = portatil2 ;
-    lista[2] = portatil3 ;
-    lista[3] = sobremesa1 ;
-    lista[4] = sobremesa2 ;
-    lista[5] = sobremesa3 ;
-    
-    System.out.println("\n¡BIENVENIDO/A A LA APLICACIÓN DE GESTIÓN DE ORDENADORES!");
-    System.out.println("--------------------------------------------------------\n");
-    
-    descargar(lista, 4);
-        cargar(lista, 4);
-    
+        
+        System.out.println("\n--------------------------------------------------------");
+        System.out.println("¡GRACIAS POR UTILIZAR LA APLICACIÓN DE GESTIÓN DE ORDENADORES!\n");
     }
     
     
@@ -66,14 +141,15 @@ public class Parte1app {
         System.out.println("\t" + Utilidades.coloreaCadena("---------------- MENÚ ----------------", Utilidades.cyan));
         System.out.println("\t" + Utilidades.coloreaCadena("--------------------------------------\n", Utilidades.cyan));
         
-        System.out.println("\ta. Listar todos los ordenadores mezclados (portátiles y sobremesa).") ;
-        System.out.println("\tb. Listar sólo los portátiles.") ;
-        System.out.println("\tc. Listar sólo los ordenadores de sobremesa.") ;
-        System.out.println("\td. Encender un ordenador.") ;
-        System.out.println("\te. Apagar un ordenador.") ;
-        System.out.println("\tf. Dibujar un ordenador") ;
-        System.out.println("\tg. Cargar portátiles.") ;
-        System.out.println("\th. Descargar portátiles.\n");
+        System.out.println(Utilidades.coloreaCadena("\ta. Listar todos los ordenadores mezclados (portátiles y sobremesa).", Utilidades.cyan)) ;
+        System.out.println(Utilidades.coloreaCadena("\tb. Listar sólo los portátiles.", Utilidades.cyan)) ;
+        System.out.println(Utilidades.coloreaCadena("\tc. Listar sólo los ordenadores de sobremesa.", Utilidades.cyan)) ;
+        System.out.println(Utilidades.coloreaCadena("\td. Encender un ordenador.", Utilidades.cyan)) ;
+        System.out.println(Utilidades.coloreaCadena("\te. Apagar un ordenador.", Utilidades.cyan)) ;
+        System.out.println(Utilidades.coloreaCadena("\tf. Dibujar un ordenador.", Utilidades.cyan)) ;
+        System.out.println(Utilidades.coloreaCadena("\tg. Cargar portátiles.", Utilidades.cyan)) ;
+        System.out.println(Utilidades.coloreaCadena("\th. Descargar portátiles.\n", Utilidades.cyan)) ;
+        System.out.println(Utilidades.coloreaCadena("\ti. Salir.\n", Utilidades.cyan)) ;
         
     }
     
