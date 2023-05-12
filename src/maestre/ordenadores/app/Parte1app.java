@@ -48,6 +48,9 @@ public class Parte1app {
     System.out.println("\n¡BIENVENIDO/A A LA APLICACIÓN DE GESTIÓN DE ORDENADORES!");
     System.out.println("--------------------------------------------------------\n");
     
+    descargar(lista, 4);
+        cargar(lista, 4);
+    
     }
     
     
@@ -71,6 +74,7 @@ public class Parte1app {
         System.out.println("\tf. Dibujar un ordenador") ;
         System.out.println("\tg. Cargar portátiles.") ;
         System.out.println("\th. Descargar portátiles.\n");
+        
     }
     
     
