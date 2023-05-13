@@ -1,6 +1,7 @@
 
 package maestre.ordenadores.modelo;
 
+import maestre.general.interfaces.Reparable;
 import utilidades.Utilidades;
 
 /**
@@ -9,7 +10,7 @@ import utilidades.Utilidades;
  * @author Adrián Arjona
  * @version Mayo 2023
  */
-public class Portatil extends Ordenador{
+public class Portatil extends Ordenador implements Reparable{
     
     /* Francisco Adrián Arjona Bravo
         UNIDAD 8: utilización avanzada de clases.
@@ -216,4 +217,16 @@ public class Portatil extends Ordenador{
             }
         }
         
+        
+        /**
+         * Método implementado por la interface Reparable. Indica con un mensaje 
+         * por pantalla que el portátil está siendo reparado.
+         */
+            @Override
+        public void reparar(){
+            
+            System.out.println(Utilidades.coloreaCadena("\n*****************************************", Utilidades.cyan)) ;
+            System.out.println(Utilidades.coloreaCadena("       El portátil está siendo reparado     ", Utilidades.cyan)) ;
+            System.out.println(Utilidades.coloreaCadena("*****************************************\n", Utilidades.cyan)) ;
+        }
 }

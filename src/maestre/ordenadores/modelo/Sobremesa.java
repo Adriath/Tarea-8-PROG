@@ -1,6 +1,8 @@
 
 package maestre.ordenadores.modelo;
 
+import java.awt.Color;
+import maestre.general.interfaces.Reparable;
 import utilidades.Utilidades;
 
 /**
@@ -9,7 +11,7 @@ import utilidades.Utilidades;
  * @author Adrián Arjona
  * @version Mayo 2023
  */
-public class Sobremesa extends Ordenador{
+public class Sobremesa extends Ordenador implements Reparable{
     
     /* Francisco Adrián Arjona Bravo
         UNIDAD 8: utilización avanzada de clases.
@@ -164,5 +166,19 @@ public class Sobremesa extends Ordenador{
             {
                 System.out.println(Utilidades.coloreaCadena("\nEl ordenador no está arrancado.", Utilidades.rojo)) ;
             }
+        }
+        
+        
+        
+        /**
+         * Método implementado por la interface Reparable. Indica con un mensaje 
+         * por pantalla que el ordenador está siendo reparado.
+         */
+            @Override
+        public void reparar(){
+            
+            System.out.println(Utilidades.coloreaCadena("\n*****************************************", Utilidades.cyan)) ;
+            System.out.println(Utilidades.coloreaCadena("     El ordenador está siendo reparado     ", Utilidades.cyan)) ;
+            System.out.println(Utilidades.coloreaCadena("*****************************************\n", Utilidades.cyan)) ;
         }
 }

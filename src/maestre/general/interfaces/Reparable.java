@@ -12,8 +12,6 @@ public interface Reparable {
         UNIDAD 8: utilización avanzada de clases.
     */
     
-    /**
-     * Método que sirve para indicar una reparación mediante un dibujo.
-     */
-    public void reparar() ;
+    abstract public void reparar() ;
+        // Método que sirve para indicar si un objeto está en reparación.
 }
