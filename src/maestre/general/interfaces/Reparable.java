@@ -2,6 +2,7 @@
 package maestre.general.interfaces;
 
 /**
+ * Interface que indica si los objetos son reparables.
  * 
  * @author Adrián Arjona
  * @version Mayo 2023
@@ -12,6 +13,9 @@ public interface Reparable {
         UNIDAD 8: utilización avanzada de clases.
     */
     
+    /**
+     * Método que indica si el objeto está en reparación.
+     */
     abstract public void reparar() ;
-        // Método que sirve para indicar si un objeto está en reparación.
+    
 }

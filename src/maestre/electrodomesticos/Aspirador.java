@@ -5,7 +5,8 @@ import maestre.general.interfaces.Reparable;
 import utilidades.Utilidades;
 
 /**
- *
+ * Clase que crea un objeto de tipo aspirador. Implementa la interface Reparable.
+ * 
  * @author Adrián Arjona
  * @version Mayo 2023
  */
