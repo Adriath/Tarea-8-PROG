@@ -140,7 +140,7 @@ public class Aspirador implements Reparable{
             
             sb.append("\nASPIRADOR:");
             sb.append("\n----------------");
-            sb.append("\nPotencia = ").append(potencia) ;
+            sb.append("\nPotencia = ").append(potencia).append(" W") ;
             sb.append("\nMarca = ").append(marca) ;
             sb.append("\nEnchufado = ").append(enchufado ? "Sí" : "No") ;
             
