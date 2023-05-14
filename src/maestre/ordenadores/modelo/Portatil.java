@@ -235,7 +235,7 @@ public class Portatil extends Ordenador implements Reparable, Comparable<Portati
          * Método compareTo de la clase Portatil. Los compara según el número de pulgadas.
          * 
          * @param otroPortatil El portátil con el que se quiere comparar.
-         * @return Devuelve 0 si son iguales, positivo si otro es mayor y negativo si otro es menor.
+         * @return Devuelve 0 si son iguales, positivo si el objeto actual es mayor (al comparado) y negativo si el objeto acutal es menor (al comparado).
          */
             @Override
         public int compareTo(Portatil otroPortatil){
@@ -247,13 +247,13 @@ public class Portatil extends Ordenador implements Reparable, Comparable<Portati
             {
                 return 0 ; // ...devuelve 0.
             }
-            else if (este < otro) // Si otro es mayor...
+            else if (este > otro) // Si este es mayor...
             {
-                return otro - este ; // ...devuelve un valor positivo.
+                return este - otro ; // ...devuelve un valor positivo.
             }
-            else // Si otro es menor...
+            else // Si este es menor...
             {
-                return este - otro ; // ...devuelve un valor negativo.
+                return otro - este ; // ...devuelve un valor negativo.
             }
         }
         
