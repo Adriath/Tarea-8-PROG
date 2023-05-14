@@ -36,7 +36,15 @@ abstract public class Ordenador {
      */
     public enum TipoDiscoDuro{
         
-       HDD("HDD"), SSD("SSD") ; // Valores HDD y SDD
+       /**
+        * HDD. Disco tradicional.
+        */
+        HDD("HDD"), 
+        
+        /**
+         * SSD. Disco sólido.
+         */
+        SSD("SSD") ;
         
         private final String tipo;
         
