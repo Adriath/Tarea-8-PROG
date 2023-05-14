@@ -240,21 +240,7 @@ public class Portatil extends Ordenador implements Reparable, Comparable<Portati
             @Override
         public int compareTo(Portatil otroPortatil){
             
-            int este = this.pulgadas ;
-            int otro = otroPortatil.pulgadas ;
-            
-            if (este == otro) // Si son iguales...
-            {
-                return 0 ; // ...devuelve 0.
-            }
-            else if (este > otro) // Si este es mayor...
-            {
-                return este - otro ; // ...devuelve un valor positivo.
-            }
-            else // Si este es menor...
-            {
-                return otro - este ; // ...devuelve un valor negativo.
-            }
+            return this.pulgadas - otroPortatil.getPulgadas() ;
         }
         
 }
