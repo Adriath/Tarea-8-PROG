@@ -10,7 +10,7 @@ import utilidades.Utilidades;
  * @author Adrián Arjona
  * @version Mayo 2023
  */
-public class Portatil extends Ordenador implements Reparable{
+public class Portatil extends Ordenador implements Reparable, Comparable<Portatil>{
     
     /* Francisco Adrián Arjona Bravo
         UNIDAD 8: utilización avanzada de clases.
@@ -229,4 +229,32 @@ public class Portatil extends Ordenador implements Reparable{
             System.out.println(Utilidades.coloreaCadena("     El portátil está siendo reparado     ", Utilidades.cyan)) ;
             System.out.println(Utilidades.coloreaCadena("*****************************************\n", Utilidades.cyan)) ;
         }
+        
+        
+        /**
+         * Método compareTo de la clase Portatil. Los compara según el número de pulgadas.
+         * 
+         * @param otroPortatil El portátil con el que se quiere comparar.
+         * @return Devuelve 0 si son iguales, positivo si otro es mayor y negativo si otro es menor.
+         */
+            @Override
+        public int compareTo(Portatil otroPortatil){
+            
+            int este = this.pulgadas ;
+            int otro = otroPortatil.pulgadas ;
+            
+            if (este == otro) // Si son iguales...
+            {
+                return 0 ; // ...devuelve 0.
+            }
+            else if (este < otro) // Si otro es mayor...
+            {
+                return otro - este ; // ...devuelve un valor positivo.
+            }
+            else // Si otro es menor...
+            {
+                return este - otro ; // ...devuelve un valor negativo.
+            }
+        }
+        
 }
