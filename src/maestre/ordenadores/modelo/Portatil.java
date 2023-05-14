@@ -226,7 +226,7 @@ public class Portatil extends Ordenador implements Reparable{
         public void reparar(){
             
             System.out.println(Utilidades.coloreaCadena("\n*****************************************", Utilidades.cyan)) ;
-            System.out.println(Utilidades.coloreaCadena("       El portátil está siendo reparado     ", Utilidades.cyan)) ;
+            System.out.println(Utilidades.coloreaCadena("     El portátil está siendo reparado     ", Utilidades.cyan)) ;
             System.out.println(Utilidades.coloreaCadena("*****************************************\n", Utilidades.cyan)) ;
         }
 }
