@@ -26,6 +26,11 @@ public class Parte2App {
     // -------------------- MÉTODO MAIN ---------------------------
     // ------------------------------------------------------------
     
+    /**
+     * Método main de la clase Psrte2App
+     * 
+     * @param args args
+     */
     public static void main(String[] args) {
         
         
@@ -91,4 +96,6 @@ public class Parte2App {
         
         System.out.println(Utilidades.coloreaCadena("\nTodos los objetos están en reparación.\n", Utilidades.cyan)) ;
     }
+    
+    
 }

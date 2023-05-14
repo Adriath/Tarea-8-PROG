@@ -28,7 +28,7 @@ public class Parte1app {
     /**
      * Método main de la clase Parte1App
      * 
-     * @param args 
+     * @param args args
      */
     public static void main(String[] args) {
         

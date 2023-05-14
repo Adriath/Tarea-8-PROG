@@ -520,7 +520,7 @@ public class Utilidades {
      * 
      * @param msj String. Mensaje introducido por el usuario.
      * @return boolean valido. Devuelve si es válida la respuesta (true) o no (false).
-     * @throws utilidades.excepciones_utilidades.ExcepcionDecisionUsuario
+     * @throws ExcepcionDecisionUsuario.
      */
     public static boolean compruebaDecisionUsuario(String msj)throws ExcepcionDecisionUsuario{
         String si = "s" ;
@@ -631,15 +631,16 @@ public class Utilidades {
     
     // ------------------ OTROS -------------------------
     
-    public static String negro = "\033[30m" ; 
-    public static String rojo = "\033[31m" ; 
-    public static String verde = "\033[32m" ; 
-    public static String amarillo = "\033[33m" ; 
-    public static String azul = "\033[34m" ; 
-    public static String magenta = "\033[35m" ; 
-    public static String cyan = "\033[36m" ; 
-    public static String blanco = "\033[37m" ;
-    public static String reset = "\u001B[0m" ;
+    public static String negro = "\033[30m" ; // NEGRO
+    public static String rojo = "\033[31m" ; // ROJO
+    public static String verde = "\033[32m" ; // VERDE
+    public static String amarillo = "\033[33m" ; // AMARILLO
+    public static String azul = "\033[34m" ; // AZUL
+    public static String magenta = "\033[35m" ; // MAGENTA
+    public static String cyan = "\033[36m" ; // CYAN
+    public static String blanco = "\033[37m" ; // BLANCO
+    
+    public static String reset = "\u001B[0m" ; // RESET
 
     
     /**

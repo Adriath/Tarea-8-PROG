@@ -35,16 +35,25 @@ abstract public class Ordenador {
      * Enum para los tipos de disco duro.
      */
     public enum TipoDiscoDuro{
-        // ENUM PARA EL TIPO DE DISCO DURO
         
-        HDD("HDD"), SSD("SSD") ;
+       HDD("HDD"), SSD("SSD") ; // Valores HDD y SDD
         
         private final String tipo;
         
+        
+        /**
+         * Constructor del eum TipoDiscoDuro.
+         * @param tipo Tipo de disco duro.
+         */
         private TipoDiscoDuro(String tipo){
             this.tipo = tipo ;
         }
         
+        /**
+         * Método que devuelve el tipo de disco duro.
+         * 
+         * @return Tipo de disco duro.
+         */
         public String getTipo(){
             return tipo ;
         }
